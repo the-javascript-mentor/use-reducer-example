@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import useCounter from "./useCounter";
 
-function App() {
+const App = () => {
+  const {
+    counter,
+    increaseCounter,
+    decreaseCounter,
+    increaseCounterBy,
+    resetCounter,
+    invertCounter,
+  } = useCounter();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>The current value is: {counter}</p>
+      <button onClick={increaseCounter}>Increase</button>
+      <hr />
+      <button onClick={decreaseCounter}>Decrease</button>
+      <hr />
+      <button
+        onClick={() => {
+          increaseCounterBy(10);
+        }}
+      >
+        Increase by 10
+      </button>
+      <hr />
+      <button
+        onClick={() => {
+          increaseCounterBy(100);
+        }}
+      >
+        Increase by 100
+      </button>
+      <hr />
+      <button onClick={resetCounter}>Reset</button>
+      <hr />
+      <button onClick={invertCounter}>Invert</button>
     </div>
   );
-}
+};
 
 export default App;
